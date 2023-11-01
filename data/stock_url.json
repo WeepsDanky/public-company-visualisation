@@ -1,0 +1,92 @@
+[
+    {
+        "id": 2,
+        "output": 0,
+        "explanation": "The headline advises caution in holiday shopping season."
+    },
+    {
+        "id": 3,
+        "output": 0,
+        "explanation": "The headline reports on stock market movements after hours."
+    },
+    {
+        "id": 4,
+        "output": 0,
+        "explanation": "The headline discusses the stock market performance of Caterpillar."
+    },
+    {
+        "id": 5,
+        "output": 0,
+        "explanation": "The headline reports on stock market movements midday."
+    },
+    {
+        "id": 7,
+        "output": 0,
+        "explanation": "The headline reports on stock market movements premarket."
+    },
+    {
+        "id": 9,
+        "output": 0,
+        "explanation": "The headline reports on stock market movements after hours."
+    },
+    {
+        "id": 10,
+        "output": 0,
+        "explanation": "The headline reports on stock market movements midday."
+    },
+    {
+        "id": 12,
+        "output": 0,
+        "explanation": "The headline reports on stock market movements premarket."
+    },
+    {
+        "id": 13,
+        "output": 0,
+        "explanation": "The headline reports on HSBC's financial performance."
+    },
+    {
+        "id": 17,
+        "output": 0,
+        "explanation": "The headline reports on Amazon's stock market performance."
+    },
+    {
+        "id": 18,
+        "output": 0,
+        "explanation": "The headline reports on stock market movements midday."
+    },
+    {
+        "id": 19,
+        "output": 0,
+        "explanation": "The headline reports on JPMorgan's stock market performance."
+    },
+    {
+        "id": 22,
+        "output": 0,
+        "explanation": "The headline reports on stock market movements premarket."
+    },
+    {
+        "id": 25,
+        "output": 0,
+        "explanation": "The headline reports on stock market movements after hours."
+    },
+    {
+        "id": 26,
+        "output": 0,
+        "explanation": "The headline reports on Meta's earnings and ad sales outlook."
+    },
+    {
+        "id": 28,
+        "output": 0,
+        "explanation": "The headline reports on stock market movements midday."
+    },
+    {
+        "id": 30,
+        "output": 0,
+        "explanation": "The headline reports on stock market movements before the bell."
+    },
+    {
+        "id": 34,
+        "output": 0,
+        "explanation": "The headline reports on stock market movements after hours."
+    }
+]
