@@ -8,7 +8,7 @@ import os
 import dotenv
  
 # read the json file
-with open('financialnews.json', 'r', encoding='utf-8') as json_file:
+with open('data/financialnews.json', 'r', encoding='utf-8') as json_file:
     data = json.load(json_file)
 
 # select the id and headlines from the json file
@@ -33,26 +33,20 @@ def classify_headlines(info):
             {"role": "system", "content": "You are a helpful assistant!"}, 
             {"role": "user", "content": prompt}
         ],
+        max_tokens=2000
     )
-    print('prompted!')
-    # print(response)
-    def format_response(text): 
-        # format the response from openai api - delete \ and \n 
-        text = text.replace('\\', '')
-        text = text.replace('\n', '')
-        return text
-    
-    formatted_response = format_response(response.choices[0].message.content)
-    with open('openai_response.json', 'w') as json_file:
-        json.dump(formatted_response, json_file, ensure_ascii=False) 
+    print(response)
+    print('Response received!')
+    with open('data/openai_response.json', 'w') as json_file:
+        json.dump(response['choices'][0]['message']['content'], json_file, ensure_ascii=False) 
     print('response saved!')
+    return response['choices'][0]['message']['content']
     
 
 def select_news_stock(filepath, news_type): 
     # select the headlines that are about stock market
     with open(filepath, 'r', encoding='utf-8') as json_file:
         data = json.load(json_file)
-    data = json.loads(data)
     print('data loaded!')
     stock_headlines = []
     for item in data:
@@ -61,11 +55,22 @@ def select_news_stock(filepath, news_type):
     print(stock_headlines)
     return stock_headlines 
 
-
 if __name__ == "__main__":
     # classify_headlines(news_headlines)
-    with open('data/stock_url.json', 'w', encoding='utf-8') as json_file:
-        json.dump(select_news_stock('openai_response.json', 0), json_file, ensure_ascii=False)
+    with open('data/openai_response.json', 'r', encoding='utf-8') as json_file:
+        response = json.load(json_file)
+    
+    id_list = [item["id"] for item in response] 
+    print(id_list) 
+    # get all the url when id of financialnews.json is in id_list
+    with open('data/financialnews.json', 'r', encoding='utf-8') as json_file:
+        news = json.load(json_file)
+        url_list = [item["url"] for item in news if item["id"] in id_list]
+        print(url_list)
+        # write the url_list to a json file 
+        with open('data/stock_url.json', 'w', encoding='utf-8') as json_file:
+            json.dump(url_list, json_file, ensure_ascii=False)
+        print('stock url saved!')
 
 """ 
 - [x] classify the news articles in financialnews.json using openai api gpt-3.5-turbo-0613
