@@ -43,14 +43,13 @@ const Home: NextPage = ({ industryList }: { industryList : Array }) => {
             <Link
               key={id}
               href={`/?industry=${id}`}
-              // as={`/industry/${id}`}
+              as={`/industry/${id}`}
               shallow
               className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
             >
               <div className="max-w-md mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
                 <div class="p-8">
-                  <div class="tracking-wide text-lg text-indigo-500 font-semibold">
-                    {industry}
+                  <div class="tracking-wide text-lg text-indigo-500 font-semibold">{industry}
                   </div>
                   <p className='text-white'> An explanation </p>
                 </div>
@@ -76,15 +75,12 @@ const Home: NextPage = ({ industryList }: { industryList : Array }) => {
 
 export default Home
 
+export async function getStaticProps() {
 
-const GICSList = ['Energy', 'Materials', 'Industrials', 'Consumer Discretionary', 'Consumer Staples', 'Health Care', 'Financials', 'Information Technology', 'Communication Services', 'Utilities', 'Real Estate']
+  const GICSList = ['Energy', 'Materials', 'Industrials', 'Consumer Discretionary', 'Consumer Staples', 'Health Care', 'Financials', 'Information Technology', 'Communication Services', 'Utilities', 'Real Estate']
 
-export async function getStaticProps( { params }) {
-  const { industryId } = params;
-  const industry = GICSList[parseInt(industryId)];
-  let i = 0
   let industryList = []
-  
+  let i = 0
   for (let item of GICSList) { 
     industryList.push({
       id: i,
@@ -95,15 +91,7 @@ export async function getStaticProps( { params }) {
 
   return {
     props: {
-      industryList,
+      industryList : industryList,
     },
   }
-}
-
-export async function getStaticPaths() {
-  const paths = GICSList.map((industry, index) => ({
-    params: { industryId: index.toString() },
-  }));
-
-  return { paths, fallback: false };
 }
