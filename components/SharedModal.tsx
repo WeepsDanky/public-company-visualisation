@@ -19,7 +19,7 @@ import Twitter from './Icons/Twitter'
 export default function SharedModal({
   index,
   images,
-  changePhotoId,
+  changeindustryId,
   closeModal,
   navigation,
   currentPhoto,
@@ -34,12 +34,12 @@ export default function SharedModal({
   const handlers = useSwipeable({
     onSwipedLeft: () => {
       if (index < images?.length - 1) {
-        changePhotoId(index + 1)
+        changeindustryId(index + 1)
       }
     },
     onSwipedRight: () => {
       if (index > 0) {
-        changePhotoId(index - 1)
+        changeindustryId(index - 1)
       }
     },
     trackMouse: true,
@@ -99,7 +99,7 @@ export default function SharedModal({
                     <button
                       className="absolute left-3 top-[calc(50%-16px)] rounded-full bg-black/50 p-3 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white focus:outline-none"
                       style={{ transform: 'translate3d(0, 0, 0)' }}
-                      onClick={() => changePhotoId(index - 1)}
+                      onClick={() => changeindustryId(index - 1)}
                     >
                       <ChevronLeftIcon className="h-6 w-6" />
                     </button>
@@ -108,7 +108,7 @@ export default function SharedModal({
                     <button
                       className="absolute right-3 top-[calc(50%-16px)] rounded-full bg-black/50 p-3 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white focus:outline-none"
                       style={{ transform: 'translate3d(0, 0, 0)' }}
-                      onClick={() => changePhotoId(index + 1)}
+                      onClick={() => changeindustryId(index + 1)}
                     >
                       <ChevronRightIcon className="h-6 w-6" />
                     </button>
@@ -184,7 +184,7 @@ export default function SharedModal({
                         x: `${Math.max(index * -100, 15 * -100)}%`,
                       }}
                       exit={{ width: '0%' }}
-                      onClick={() => changePhotoId(id)}
+                      onClick={() => changeindustryId(id)}
                       key={id}
                       className={`${
                         id === index
