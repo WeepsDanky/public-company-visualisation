@@ -42,9 +42,7 @@ const Home: NextPage = ({ industryList }: { industryList : Array }) => {
           {industryList.map(({ id, industry }) => (
             <Link
               key={id}
-              href={`/?industry=${id}`}
-              as={`/industry/${id}`}
-              shallow
+              href={`/industry/${id}`}
               className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
             >
               <div className="max-w-md mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
