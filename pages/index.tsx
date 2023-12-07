@@ -4,11 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useRef } from 'react'
-import Modal from '../components/Modal'
-import cloudinary from '../utils/cloudinary'
-import getBase64ImageUrl from '../utils/generateBlurPlaceholder'
-import type { ImageProps } from '../utils/types'
-import { useLastViewedPhoto } from '../utils/useLastViewedPhoto'
+
 
 const Home: NextPage = ({ industryList }: { industryList : Array }) => {
   const router = useRouter()
@@ -33,7 +29,7 @@ const Home: NextPage = ({ industryList }: { industryList : Array }) => {
             <h1 className="mt-3 mb-10 text-base font-bold tracking-widest">
               Summary of the Industry
             </h1>
-            <ul class="max-w-[40ch] list-disc text-white/75 text-left sm:max-w-[32ch]">
+            <ul className="max-w-[40ch] list-disc text-white/75 text-left sm:max-w-[32ch]">
               <li>This page can classify all public companies according to Global Industry Classification Standard (GICS), Bloomberg's Standard (BCS), or 申万行业分类 和 中信行业分类</li>
               <li>点进每一页查看行业具体信息</li>
             </ul>
@@ -41,13 +37,13 @@ const Home: NextPage = ({ industryList }: { industryList : Array }) => {
 
           {industryList.map(({ id, industry }) => (
             <Link
-              key={id}
-              href={`/industry/${id}`}
+              key={industry}
+              href={`/industry/${industry}`}
               className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
             >
               <div className="max-w-md mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-                <div class="p-8">
-                  <div class="tracking-wide text-lg text-indigo-500 font-semibold">{industry}
+                <div className="p-8">
+                  <div className="tracking-wide text-lg text-indigo-500 font-semibold">{industry}
                   </div>
                   <p className='text-white'> An explanation </p>
                 </div>
