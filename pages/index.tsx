@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useRef } from 'react'
 
 
-const Home: NextPage = ({ industryList }: { industryList : Array }) => {
+const Home: NextPage = ({ industryList }: { industryList : Array<any> }) => {
   const router = useRouter()
   const { industryId: industryId } = router.query
 
