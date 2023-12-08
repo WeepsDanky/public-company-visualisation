@@ -14,7 +14,7 @@ const Home = () => {
     // Create a base64 encoding of the username and password for basic auth
     const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
   
-    fetch(`http://127.0.0.1:8000/api/companies/?IQ_SECTOR=${id}`, { // use the ID in the API call
+    fetch(`http://198.44.169.157:8000/api/companies/?IQ_SECTOR=${id}`, { // use the ID in the API call
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
