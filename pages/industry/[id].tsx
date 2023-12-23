@@ -15,7 +15,7 @@ const Home = () => {
     const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
   
     // fetch(`http://198.44.169.157:8000/api/companies/?IQ_SECTOR=${id}`, { // use the ID in the API call
-    fetch(`https://xieyixuanzuishuai.shop:8000/api/companies/?IQ_SECTOR=${id}`, {
+    fetch(`http://xieyixuanzuishuai.shop:8000/api/companies/?IQ_SECTOR=${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
